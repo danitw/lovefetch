@@ -14,8 +14,10 @@ def clearTerminal():
 
 # Informations
 
-hostUsername = socket.gethostname() # Username
-osPlatform = platform.platform() # OS name
+hostUsername = socket.gethostname() # Host Username
+username = os.getlogin() # Username
+osPlatform = platform.system() # Platform (Linux, Windows ...)
+kernel = os.uname()[2] # Kernel
 machinePlatform = platform.machine() # Machine Platform (AMD64...)
 dateTime = date.today() # Current day
 upTime = datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S") # Boot time
@@ -35,9 +37,11 @@ def lovefetch():
     else:
         print(unknow)
 
-    print(f'[bold magenta] Username ~> {hostUsername} [/bold magenta]')
+    print(f'[bold magenta] Host ~> {hostUsername} [/bold magenta]')
+    print(f'[bold magenta] Username ~> {username} [/bold magenta]')
     print(f'[bold magenta] Date ~> {dateTime} [/bold magenta]')
-    print(f'[bold magenta] OS ~> {osPlatform} [/bold magenta]')
+    print(f'[bold magenta] Platform ~> {osPlatform} [/bold magenta]')
+    print(f'[bold magenta] Kernel ~> {kernel} [/bold magenta]')
     print(f'[bold magenta] Uptime ~> {upTime} [/bold magenta]')
     print(f'[bold magenta] Memory ~> {computerMemory.total} [/bold magenta]')
     print(f'[bold magenta] CPU ~> {computerCPU} [/bold magenta]')
@@ -46,3 +50,14 @@ def lovefetch():
 
 
 lovefetch()
+
+# Testes que eu to fazendo mas whatever depois eu vejo isso
+
+def teste():
+    print(osPlatform)
+    print(os.name)
+    print(platform.system())
+    print(os.getlogin())
+    print(os.uname())
+
+#teste()
